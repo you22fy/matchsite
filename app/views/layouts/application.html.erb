@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Matchsite</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1>Friend Matching</h1>
+      <div class ="header-list">
+        <ul>
+          <li><%= link_to "トップ",recruits_top_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "掲示板",recruits_index_path %></li>
+            <li><%= link_to "友達を探す",recruits_list_path %></li>
+            <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+            <li><%= link_to "DM",rooms_index_path %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <% end %>
+        <ul>
+      </div> 
+    </header>
+      <main>
+        <%= yield %>
+      </main>
+    <footer>
+      <div class=content>Copyright © All Rights Reserved.</div>
+    </footer>
+  </body>
+</html>

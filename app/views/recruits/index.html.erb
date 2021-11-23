@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<h1>募集一覧</h1>
+<h3><%= link_to'新規投稿を作成', recruits_new_path %></h3>
+<h3>投稿を検索</h3>
+<%= form_tag({controller:"recruits",action:"index"}, method: :get) do %>
+    <%= select_tag "search",options_for_select([["all",""],["雑談","雑談"],["ゲーム募集","ゲーム募集"],["勉強会","勉強会"],["食事","食事"],["空きコマ","空きコマ"]]) %>
+    <%= submit_tag '表示する'  %>
+<% end %>
+
+<div class=recruit-container>
+    <% @recruit.each do |t| %>
+        <div class=recruit>
+            <ul>
+            <li class=title><%= t.title %></li>
+                <div class = user_content>
+                    <li><a href="/users/<%= t.user.id %>"><%= image_tag t.user.image_url,size:"50×50" if t.user.image? %></a></li>
+                    <li class=name><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></li>
+                </div>
+                <li>ジャンル:<%= t.genre %></li>
+                <li><%= t.body %></li>
+                <li>
+                    <% if t.links==nil %>
+                    <% else %>
+                        <%= Rinku.auto_link(t.links, :all, 'target="_blank"').html_safe %>
+                    <% end %>
+                </li>
+                <li><%= image_tag t.image_url, size: "250x200" if t.image? %></li>
+                <li>
+                    <%= link_to "コメント",recruit_path(t.id) %>
+                    <% if user_signed_in? && current_user.id == t.user_id %>
+                        <%= button_to "募集を取り下げる",recruit_path(t.id), method: :delete%>
+                    <% end %> 
+                </li>
+                <li class="created_at"><%= t.created_at %></li>
+        </div>
+    <% end %>
+</div>

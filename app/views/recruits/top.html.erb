@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag 'top', :media => "all" %>
+
+<h3>~友達を求めるあなたへ~</h3>
+<% if user_signed_in? %>
+<% else %>
+    <ul>
+        <li><%= link_to "ログイン", recruits_index_path %></li>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+    </ul>
+<% end %>
+
+<p class=passage>ここは大学生のための友達マッチングツール～～～です。</p>

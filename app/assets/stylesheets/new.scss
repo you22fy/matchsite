@@ -1,0 +1,23 @@
+main h1{
+    text-align: center;
+}
+.field{
+    text-align: center;
+}
+input[type="text"]{
+    width:90%;
+    height:30px;
+}
+input[type="submit"]{
+    align-items: center;
+    width:50%;
+    height:40px;
+}
+select{
+    align-items: center;
+    width:90%;
+    height: 30px;
+}
+label{
+    font-size:small bold;
+}

@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'show', :media => "all" %>
+<h1>投稿詳細</h1>
+
+<ul class="recruit-content">
+  <li class="title"><%= @recruit.title %></li>
+  <div class="user_content">
+    <li><a href="/users/<%= @recruit.user.id %>"><%= image_tag @recruit.user.image_url,size:"50×50" if @recruit.user.image? %></a></li>
+    <li class="name"><a href="/users/<%= @recruit.user.id %>"><%= @recruit.user.name %></a></li>
+  </div>
+    <li>ジャンル<%= @recruit.genre %></li>
+  <li><%= @recruit.body %></li>
+  <li><%= image_tag @recruit.image_url, size: "400x300" if @recruit.image? %></li>
+</ul>
+
+<div class="comment-wrapper">
+<div>コメント一覧</div>
+<% @comments.each do |c| %>
+  <div>
+    <%= c.user.name unless c.user.blank? %>
+    <%= c.content %>
+  </div>
+    <br>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= form_with(model: [@recruit, @comment], local: true) do |f| %>
+    <%= f.text_area :content ,class: "text"%>
+    <%= button_tag type: "submit" do %>
+      <i class="far fa-comments"></i> コメントする
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+
+<%= link_to '投稿一覧へ',recruits_index_path %>

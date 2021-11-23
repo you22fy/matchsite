@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag 'new', :media => "all" %>
+<h1>投稿を作成する</h1>
+<%= form_for(@recruit) do |f| %>
+  <div class="field">
+    <label>募集タイトル</label></br>
+    <%= f.text_field :title, :size => 140 %></br>
+
+    <label>募集ジャンル </label></br>
+    <%= f.select :genre,[["選択してください",""],["雑談","雑談"],["ゲーム募集","ゲーム募集"],["勉強会","勉強会"],["食事","食事"],["空きコマ","空きコマ"]],include_blanl:"選択してください" %></br>
+    
+    <label>募集場所 </label></br>
+    <%= f.text_field :place, :size => 140 %></br>
+
+    <label>詳細 </label></br>
+    <%= f.text_field :body, :size => 140 %></br>
+
+    <label>外部リンク</label></br>
+    <%= f.text_field :links, :size => 140 %></br>
+
+    <%= f.file_field :image %></br>
+
+    <%= f.submit "募集する" %>
+  </div>
+<% end %>
+<%= link_to "一覧に戻る", recruits_index_path %>

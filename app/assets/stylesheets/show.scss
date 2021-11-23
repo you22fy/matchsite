@@ -1,0 +1,39 @@
+h1{
+    text-align: center;
+}
+.recruit-content{
+    text-align: left;
+    margin-left:10%;
+    margin-right:10%;
+    width:80%;
+    border:1px solid;
+    margin-top: 2px;
+    border-color: rgb(140, 140, 140);
+    background-color:#f5f2ed;
+    font-size:medium;
+}
+.user_content{
+    display: flex;
+}
+.name{
+    font-size:x-large;
+}
+.title{
+    font-size:x-large;
+    font-family: "BIZ UDゴシック","BIZ UDGothic"; font-weight: bold;
+    text-align :center;
+}
+.comment-wrapper{
+    text-align: center;
+    margin-left:10%;
+    margin-right:10%;
+    width:80%;
+    border:1px solid;
+    margin-top: 2px;
+    border-color: rgb(140, 140, 140);
+    background-color:#f5f2ed;
+    font-size:medium;
+}
+.text{
+    width:50%;
+}
