@@ -26,8 +26,5 @@ class User < ApplicationRecord
           def following?(user)
             followings.include?(user)
           end
-          validates :profile,presence:true,obscenity: true
-          validates :belonging,presence:true,obscenity: true
-
           has_many :comments, dependent: :destroy
 end
