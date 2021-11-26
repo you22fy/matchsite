@@ -1,4 +1,14 @@
-<% @users.each do|t| %>
-    <a href="/users/<%= t.id %>"><%= t.name %></a>
-    <%= t.profile %></br>
-<% end %>
+<%= stylesheet_link_tag 'list', :media => "all" %>
+
+<div class = profile>
+    <% @users.each do|t| %>
+        <div class=main_profile>
+            <a href="/users/<%= t.id %>"><%= image_tag t.image_url,size:"50×50" if t.image? %></a>
+            <a href="/users/<%= t.id %>"><%= t.name %></a>
+        </div>
+        <div class=profile_content>
+            所属：<%= t.belonging %></br>
+            プロフィール：<%= t.profile %></br>
+        </div>
+    <% end %>
+</div>

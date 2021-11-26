@@ -27,6 +27,7 @@
                 </li>
                 <li><%= image_tag t.image_url, size: "250x200" if t.image? %></li>
                 <li>
+                    <i class="far fa-comments"></i>
                     <%= link_to "コメント",recruit_path(t.id) %>
                     <% if user_signed_in? && current_user.id == t.user_id %>
                         <%= button_to "募集を取り下げる",recruit_path(t.id), method: :delete%>
