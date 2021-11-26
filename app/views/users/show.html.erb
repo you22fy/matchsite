@@ -1,43 +1,40 @@
 <%= stylesheet_link_tag 'show_user', :media => "all" %>
 
 <h1><%= @user.name %>さんのマイページ</h1>
-
-<% if @user.id == current_user.id %>
-<% else %>
-  <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャット</a>
+<div class=user-information>
+  <% if @user.id == current_user.id %>
   <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
+    <% if @isRoom == true %>
+      <p><a href="/rooms/<%= @roomId %>">チャット</a>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, :value=> @user.id %>
+        <% end %>
+        <%= f.submit "チャットを始める" %>
       <% end %>
-      <%= f.submit "チャットを始める" %>
     <% end %>
   <% end %>
-<% end %>
 
-<div class=user_content>
-  <div>
-    <%= image_tag @user.image_url, size: "150x150" if @user.image? %>
-    <%= @user.name %>
+  <div class=user_content>
+      <%= image_tag @user.image_url, size: "150x150" if @user.image? %>
+    <div>所属 : <%= @user.belonging %></div>
+    <% if user_signed_in? && current_user.id == @user.id %>
+      <div>メールアドレス : <%= @user.email %></div>
+    <% end %>
+    <div>プロフィール : <%= @user.profile %></div>
+    <% if current_user.id == @user.id %>
+      <%= link_to "編集する", edit_user_registration_path %>
+    <% end %>
   </div>
-  <div>所属 : <%= @user.belonging %></div>
-  <% if user_signed_in? && current_user.id == @user.id %>
-    <div>メールアドレス : <%= @user.email %></div>
-  <% end %>
-  <div>プロフィール : <%= @user.profile %></div>
-  <% if current_user.id == @user.id %>
-    <%= link_to "編集する", edit_user_registration_path %>
-  <% end %>
-</div>
 
-<h2>ユーザーの投稿</h2>
-<div>
-  <% @user.recruits.each do |t| %>
-    <%= t.user.name %>
-    <%= t.title %></br>
-  <% end %>
+  <h2>ユーザーの投稿</h2>
+  <div>
+    <% @user.recruits.each do |t| %>
+      <%= t.user.name %>
+      <%= t.title %></br>
+    <% end %>
+  </div>
 </div>
-
 <br><%= link_to "Tweet一覧に戻る", recruits_index_path %>
 

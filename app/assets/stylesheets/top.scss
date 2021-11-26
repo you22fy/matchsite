@@ -1,7 +1,12 @@
-h3{
+main h3{
     color:#f5c543;
     -webkit-text-stroke: 1px rgb(0, 0, 0);
     text-align: center;
+    font-weight:bold;
+  }
+  a{
+    color: #b9491d;
+    text-decoration: none;
   }
 
 main ul{
@@ -9,10 +14,6 @@ main ul{
   text-align: center; 
   margin-left: auto; 
   margin-right: auto; 
-  border-top:2px solid #666;
-  border-bottom:2px solid #666;
-  border: solid 3px #ecad26;/*線*/
-  border-radius: 10px;/*角の丸み*/
 }
 main li{
   color:#c4981e;

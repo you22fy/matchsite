@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'index_rooms', :media => "all" %>
+
 <% @anotherEntries.each do |e| %>
     <%= link_to room_path(e.room.id) do %>
       <%= e.user.name %>とのDM</br>

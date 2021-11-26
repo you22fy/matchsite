@@ -48,6 +48,8 @@
   }
 main{
   background-color: #ffe0c257;
+  padding: 0;
+  margin: 0;
 }
   footer{
     text-decoration: none;

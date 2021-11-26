@@ -4,7 +4,7 @@
 <ul class="recruit-content">
   <li class="title"><%= @recruit.title %></li>
   <div class="user_content">
-    <li><a href="/users/<%= @recruit.user.id %>"><%= image_tag @recruit.user.image_url,size:"50×50" if @recruit.user.image? %></a></li>
+    <li><a href="/users/<%= @recruit.user.id %>"><%= image_tag @recruit.user.image_url,size:"40×40" if @recruit.user.image? %></a></li>
     <li class="name"><a href="/users/<%= @recruit.user.id %>"><%= @recruit.user.name %></a></li>
   </div>
     <li>ジャンル<%= @recruit.genre %></li>
