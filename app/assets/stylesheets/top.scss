@@ -23,3 +23,33 @@ main li{
   margin-left:auto;
   font-size: x-large;
 }
+
+.passage{
+  margin-left:5%;
+  margin-right: 5%;
+  justify-content: space-around;
+  text-align: center;
+  width:90%;
+  display: flex;
+}
+h5{
+  font-weight: bold;
+  color:#9c340b;
+  font-size: x-large;
+}
+.flex-item{
+  flex: 1;
+  margin:2px;
+  border-right:1px solid;
+  border-left:1px solid;
+  border-color: rgb(140, 140, 140);
+
+  line-height:3 ;
+  font-size:large
+}
+main h1{
+  text-align: center;
+  color:#9c340b;
+  font-size:xx-large;
+
+}

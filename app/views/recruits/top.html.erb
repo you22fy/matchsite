@@ -4,8 +4,32 @@
 <% if user_signed_in? %>
 <% else %>
     <ul>
-        <li><%= link_to "ログイン", recruits_index_path %></li>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <li><button type="button" class="btn btn-outline-danger btn-lg"><%= link_to "ログイン", recruits_index_path %></button></li>
+        <li><button type="button" class="btn btn-outline-danger btn-lg"><%= link_to "新規登録", new_user_registration_path %></button></li>
     </ul>
 <% end %>
-
+<div class = passage>
+    <div class="flex-item">
+        <h5>同じ環境の人と出会える</h5>
+        <p>あなたと同じ大学、同じ趣味、同じ思いを抱える人に出会えます</p>
+        <p>あなたがコンタクトを取りたいと思った人も必ずあなたとコンタクトを取りたいと思うはずです</p>
+    </div>
+    <div class="flex-item">
+        <h5>暇を潰す相手が見つかる</h5>
+        <p>空きコマ、休日のふとした時間、放課後のひと時。何もしないにしては長すぎるし、何かをするには短すぎる時間。</p>
+        <p>同じ悩みを抱えた人を探そう！必ずいるから</p>
+    </div>
+    <div class="flex-item">
+        <h5>ネットの壁を越えた友人</h5>
+        <p>あなたの出会いはオンラインだけでは飽きたりない</p>
+        <p>完全プライベートのDMであなたとお友達のオフ会の予定を立てちゃいましょう！</p>
+    </div>
+</div>
+<h1>さあ、始めよう！出会いを求めて！！</h1>
+<% if user_signed_in? %>
+<% else %>
+    <ul>
+        <li><button type="button" class="btn btn-outline-danger btn-lg"><%= link_to "ログイン", recruits_index_path %></button></li>
+        <li><button type="button" class="btn btn-outline-danger btn-lg"><%= link_to "新規登録", new_user_registration_path %></button></li>
+    </ul>
+<% end %>
