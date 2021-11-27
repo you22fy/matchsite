@@ -6,7 +6,12 @@ class RecruitsController < ApplicationController
    end
 
    def list
-      @users = User.all
+      if params[:search] != nil && params[:search] != ''
+         @search = params[:search]
+         @users = User.where("profile LIKE ? OR name LIKE ? OR belonging LIKE ?", "%#{@search}%", "%#{@search}%", "%#{@search}%")
+      else
+         @users = User.all
+      end
    end
 
    def index

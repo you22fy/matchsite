@@ -1,14 +1,21 @@
 <%= stylesheet_link_tag 'list', :media => "all" %>
+<h3>ユーザーを検索</h3>
+<div class=search>
+    <%= form_tag({controller:"recruits",action:"list"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+</div>
+<% end %>
+<% @users.each do|t| %>
+    <ul class = profile>
 
-<div class = profile>
-    <% @users.each do|t| %>
         <div class=main_profile>
             <a href="/users/<%= t.id %>"><%= image_tag t.image_url,size:"50×50" if t.image? %></a>
             <a href="/users/<%= t.id %>"><%= t.name %></a>
         </div>
         <div class=profile_content>
-            所属：<%= t.belonging %></br>
-            プロフィール：<%= t.profile %></br>
+            <li>所属：<%= t.belonging %></br></li>
+            <li>プロフィール：<%= t.profile %></br></li>
         </div>
-    <% end %>
-</div>
+    </ul>
+<% end %>
