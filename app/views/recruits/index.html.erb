@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
 
 <h1>募集一覧</h1>
-<h3><%= link_to'新規投稿を作成', recruits_new_path %></h3>
+<h3><button type="button" class="btn btn-outline-danger btn-lg"><%= link_to'新規投稿を作成', recruits_new_path %></button></h3>
 <h3>投稿を検索</h3>
 <%= form_tag({controller:"recruits",action:"index"}, method: :get) do %>
     <%= select_tag "search",options_for_select([["all",""],["雑談","雑談"],["ゲーム募集","ゲーム募集"],["勉強会","勉強会"],["食事","食事"],["空きコマ","空きコマ"]]) %>
