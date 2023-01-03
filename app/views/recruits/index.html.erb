@@ -18,6 +18,9 @@
                     <li class=name><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></li>
                 </div>
                 <li>ジャンル:<%= t.genre %></li>
+                <%# <%= link_to controller:"tweets",action:"index" do %> %>
+                    <%# <%= t.tag %> %>
+                <%# <% end %> %>
                 <li><%= t.body %></li>
                 <li>
                     <% if t.links==nil %>
@@ -30,7 +33,7 @@
                     <i class="far fa-comments"></i>
                     <%= link_to "コメント",recruit_path(t.id) %>
                     <% if user_signed_in? && current_user.id == t.user_id %>
-                        <%= button_to "募集を取り下げる",recruit_path(t.id), method: :delete%>
+                        <%= link_to "募集を取り下げる",recruit_path(t.id), method: :delete%>
                     <% end %> 
                 </li>
                 <li class="created_at"><%= t.created_at %></li>
